@@ -9,6 +9,12 @@ export class InfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    
+    const userpool = new cognito.UserPool(this, 'scrabble-userpool', {
+      userPoolName: 'scrabble-userpool',
+      accountRecovery: cognito.AccountRecovery.NONE,
+      signInAliases: {
+        email: true
+      }
+    })
   }
 }
