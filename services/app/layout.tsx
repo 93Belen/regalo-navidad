@@ -1,4 +1,10 @@
 import './globals.css'
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  dispplay: 'swap',
+})
 
 
 export const metadata = {
@@ -13,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`bg-gradient-linear w-screen h-[100vh] ${montserrat.className} text-black p-5`}>{children}</body>
     </html>
   )
 }
